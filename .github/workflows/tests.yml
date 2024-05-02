@@ -29,6 +29,12 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
+      - name: Install libbtparse on Linux
+        run: |
+          sudo apt-get --assume-yes install libbtparse-dev
+          sudo ldconfig
+        if: ${{ matrix.os == 'ubuntu-22.04' }}
+
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 

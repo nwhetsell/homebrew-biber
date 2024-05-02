@@ -1,6 +1,6 @@
 # homebrew-biber
 
-This is a [Homebrew](https://brew.sh) tap for installing previous versions of [biber]("https://sourceforge.net/projects/biblatex-biber/).
+This is a [Homebrew](https://brew.sh) tap for installing previous versions of [biber](https://sourceforge.net/projects/biblatex-biber/).
 
 To install biber 2.19, run:
 

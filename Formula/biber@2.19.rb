@@ -5,6 +5,12 @@ class BiberAT219 < Formula
   sha256 "1c1266bc8adb1637c4c59e23c47d919c5a38da4e53544a3c22c21de4a68fc9fe"
   license "Artistic-2.0"
 
+  bottle do
+    root_url "https://github.com/nwhetsell/homebrew-biber/releases/download/biber@2.19-2.19"
+    sha256 cellar: :any, arm64_sonoma: "85b5735e8e97ec400d9e2ba615f3991de538ae23b03b5b1ffacd6495b2eecd63"
+    sha256 cellar: :any, ventura:      "06e6ea6c675ab900a9bb6a8649d68d15087d1ecda8942dc5fc618930954ec4df"
+  end
+
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build

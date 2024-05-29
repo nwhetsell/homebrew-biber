@@ -7,9 +7,9 @@ class BiberAT219 < Formula
   revision 1
 
   bottle do
-    root_url "https://github.com/nwhetsell/homebrew-biber/releases/download/biber@2.19-2.19"
-    sha256 cellar: :any, arm64_sonoma: "85b5735e8e97ec400d9e2ba615f3991de538ae23b03b5b1ffacd6495b2eecd63"
-    sha256 cellar: :any, ventura:      "06e6ea6c675ab900a9bb6a8649d68d15087d1ecda8942dc5fc618930954ec4df"
+    root_url "https://github.com/nwhetsell/homebrew-biber/releases/download/biber@2.19-2.19_1"
+    sha256 cellar: :any, arm64_sonoma: "b351ebad2995c0a8e9ea01e6e430f8c9415ad17b3bec33f66398e4ea1a58111f"
+    sha256 cellar: :any, ventura:      "aa336b83635a9dbfb2ec25249549ef00d8308246eff700f031f52bcd206a978f"
   end
 
   keg_only :versioned_formula

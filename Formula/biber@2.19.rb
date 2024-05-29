@@ -578,7 +578,8 @@ class BiberAT219 < Formula
       \\printbibliography
       \\end{document}
     EOS
-    system Formula["texlive"].bin/"pdflatex", testpath/"test.latex"
-    assert_predicate testpath/"test.pdf", :exist?
+    system Formula["texlive"].bin/"pdflatex", "-interaction=errorstopmode", testpath/"test.latex"
+    system bin/"biber", "test"
+    assert_predicate testpath/"test.bbl", :exist?
   end
 end

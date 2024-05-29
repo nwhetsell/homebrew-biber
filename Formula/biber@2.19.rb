@@ -562,7 +562,7 @@ class BiberAT219 < Formula
     assert_predicate testpath/"annotations.bcf.html", :exist?
     assert_predicate testpath/"annotations.blg", :exist?
     assert_predicate testpath/"annotations.bbl", :exist?
-    
+
     (testpath/"test.bib").write <<~EOS
       @book{test,
         author = {Test},

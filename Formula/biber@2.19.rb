@@ -4,6 +4,7 @@ class BiberAT219 < Formula
   url "https://github.com/plk/biber/archive/refs/tags/v2.19.tar.gz"
   sha256 "1c1266bc8adb1637c4c59e23c47d919c5a38da4e53544a3c22c21de4a68fc9fe"
   license "Artistic-2.0"
+  revision 1
 
   bottle do
     root_url "https://github.com/nwhetsell/homebrew-biber/releases/download/biber@2.19-2.19"
@@ -14,6 +15,7 @@ class BiberAT219 < Formula
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
+  depends_on "texlive" => :test
   depends_on "openssl@3"
   depends_on "perl"
 
@@ -560,5 +562,23 @@ class BiberAT219 < Formula
     assert_predicate testpath/"annotations.bcf.html", :exist?
     assert_predicate testpath/"annotations.blg", :exist?
     assert_predicate testpath/"annotations.bbl", :exist?
+    
+    (testpath/"test.bib").write <<~EOS
+      @book{test,
+        author = {Test},
+        title = {Test}
+      }
+    EOS
+    (testpath/"test.latex").write <<~EOS
+      \\documentclass{article}
+      \\usepackage[backend=biber]{biblatex}
+      \\bibliography{test}
+      \\begin{document}
+      \\cite{test}
+      \\printbibliography
+      \\end{document}
+    EOS
+    assert_match "Output written on test.pdf", shell_output("#{Formula["texlive"].bin}/pdflatex #{testpath}/test.latex")
+    assert_predicate testpath/"test.pdf", :exist?
   end
 end

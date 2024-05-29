@@ -578,7 +578,7 @@ class BiberAT219 < Formula
       \\printbibliography
       \\end{document}
     EOS
-    assert_match "Output written on test.pdf", shell_output("#{Formula["texlive"].bin}/pdflatex #{testpath}/test.latex")
+    system Formula["texlive"].bin/"pdflatex", testpath/"test.latex"
     assert_predicate testpath/"test.pdf", :exist?
   end
 end

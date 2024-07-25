@@ -14,6 +14,8 @@ class BiberAT219 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2024-07-25", because: "biber in Homebrew core is tested against TeX Live"
+
   depends_on "pkg-config" => :build
   depends_on "texlive" => :test
   depends_on "openssl@3"
